@@ -4,6 +4,7 @@ import { ContentTagEnum } from "./model/ContentTagEnum";
 import { IApiService } from "./model/IApiService";
 import { IApiResponse } from './model/IApiResponse';
 import { IContent } from './model/IContent';
+import { II18n } from './model/II18n';
 
 enum SortDirectionEnum {
   ASC = "ASC",
@@ -26,6 +27,10 @@ class ApiService implements IApiService {
   private http: AxiosInstance = axios.create({
     baseURL: "https://www.api.tncreate.pt/v1.0"
   });
+
+  public getI18n(): Promise<II18n[]> {
+    return this.httpGet("i18n");
+  }
 
   public getContent(tag: ContentTagEnum): Promise<IContent> {
     return this.httpGet(`content/${tag}`);

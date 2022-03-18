@@ -1,6 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import { Colors } from "../styles/settings/colors";
+import { useSelector } from "react-redux";
+import { RootStateType } from "../store/model/RootStateType";
 
 const sharedStyles = css`
   border: 2px dashed ${Colors.GRAY_50};
@@ -58,6 +60,9 @@ const MenuItem = styled.div`
 
 
 function Header() {
+
+  const i18n = useSelector((state: RootStateType) => state.i18n);
+
   return (
     <HeaderContainer>
       <Logo>
@@ -65,10 +70,10 @@ function Header() {
         <Name>Junta <small>de</small> Freguesia <small>de</small> Oiã</Name>
       </Logo>
       <Menu>
-        <MenuItem>Início</MenuItem>
-        <MenuItem>Freguesia</MenuItem>
-        <MenuItem>Autarquia</MenuItem>
-        <MenuItem>Informações</MenuItem>
+        <MenuItem>{i18n.menu_inicio}</MenuItem>
+        <MenuItem>{i18n.menu_freguesia}</MenuItem>
+        <MenuItem>{i18n.menu_autarquia}</MenuItem>
+        <MenuItem>{i18n.menu_informacoes}</MenuItem>
       </Menu>
     </HeaderContainer>
   );

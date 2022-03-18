@@ -11,6 +11,8 @@ import Health from "./Health";
 import { DataItem } from "./shared/DataItem";
 import Social from "./Social";
 import Other from "./Other";
+import { useSelector } from "react-redux";
+import { RootStateType } from "../../store/model/RootStateType";
 
 const ContactsContainer = styled.div`
   display: flex;
@@ -54,8 +56,11 @@ const ContainerTitle = styled.div`
 `;
 
 function Contacts() {
+  
+  const i18n = useSelector((state: RootStateType) => state.i18n);
+
   return <>
-    <H1>Contactos</H1>
+    <H1>{i18n.contacts}</H1>
     <ContactsContainer>
       <Item><Address /></Item>
       <Item><Emails /></Item>

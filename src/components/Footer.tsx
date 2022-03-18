@@ -1,5 +1,7 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { RootStateType } from "../store/model/RootStateType";
 import { Spacer } from "../styles/components/components";
 // import { Image } from "../styles/components/components";
 import { Colors } from "../styles/settings/colors";
@@ -30,9 +32,12 @@ const UnderConstruction = styled.div`
 // `;
 
 function Footer() {
+
+  const i18n = useSelector((state: RootStateType) => state.i18n);
+
   return <>
     <FooterContainer>
-      Todos os direitos reservados. Junta de Freguesia de Oiã
+      {i18n.signature}
       {/* <I9design>
         2021/2022
         <Image />

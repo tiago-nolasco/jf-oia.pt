@@ -1,12 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import store from "./store"
+
+// ACTION -> Describes what we want to do (e.g. increment, addUser, setI18n) 
+
+// REDUCER -> How an ACTION transform the state into the next (e.g. i++, user.push({}), i18n = {})
+
+// STORE -> Globalized state
+
+// DISPATCH -> Distatch an ACTION to the REDUCER
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 
