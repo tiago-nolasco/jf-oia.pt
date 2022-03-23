@@ -4,7 +4,7 @@ import styled from "styled-components";
 import ContentItem from "../shared/components/ContentItem";
 import apiService from "../shared/services/api/api.service";
 import { IContent } from "../shared/services/api/model/IContent";
-import { RootStateType } from "../store/model/RootStateType";
+import { AppStateType } from "../store/model/AppStateType";
 import { H1 } from "../styles/elements/elements";
 
 const NewsContainer = styled.div`
@@ -13,7 +13,7 @@ const NewsContainer = styled.div`
 
 function News() {
 
-  const i18n = useSelector((state: RootStateType) => state.i18n);
+  const i18n = useSelector((state: AppStateType) => state.i18n);
   const [ news, setNews ] = useState([] as IContent[]);
 
   useEffect(() => {

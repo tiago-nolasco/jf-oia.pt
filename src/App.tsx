@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { FormattedMessage, IntlProvider } from "react-intl";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import apiService from "./shared/services/api/api.service";
-import { II18n } from "./shared/services/api/model/II18n";
-import { setI18n } from "./store/actions";
+import { loadI18n } from "./store/actions";
+import { i18nSelector } from "./store/selectors/i18n";
 import { Spacer } from "./styles/components/components";
 import GenericStyles from "./styles/generic/generic";
 import Home from "./views/home";
@@ -20,26 +20,26 @@ const Container = styled.div`
 function App() {
 
   const dispatch = useDispatch();
-  
+  const i18n = useSelector(i18nSelector.data);
+  const hasI18n = useSelector(i18nSelector.hasData);
+
   useEffect(() => {
-    loadI18n();
+    dispatch(loadI18n());
   }, []);
 
-  const loadI18n = async () => {
-    const i18n: II18n[] = await apiService.getI18n();
-    dispatch(setI18n(i18n));
-  }
-
-  return <>
+  return hasI18n ? <>
     <GenericStyles />
-    <Container>
-      <Header />
-      <Spacer />
-      <Home />
-      <Spacer />
-      <Footer />
-    </Container>
-  </>;
+    <IntlProvider messages={i18n} locale="pt" defaultLocale="pt">
+      <Container>
+        <FormattedMessage id="react_intl_test" />
+        <Header />
+        <Spacer />
+        <Home />
+        <Spacer />
+        <Footer />
+      </Container>
+    </IntlProvider>
+  </> : <>Loading...</>;
 }
 
 export default App;

@@ -2,7 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { Colors } from "../styles/settings/colors";
 import { useSelector } from "react-redux";
-import { RootStateType } from "../store/model/RootStateType";
+import { AppStateType } from "../store/model/AppStateType";
 
 const sharedStyles = css`
   border: 2px dashed ${Colors.GRAY_50};
@@ -61,7 +61,7 @@ const MenuItem = styled.div`
 
 function Header() {
 
-  const i18n = useSelector((state: RootStateType) => state.i18n);
+  const i18n = useSelector((state: AppStateType) => state.i18n);
 
   return (
     <HeaderContainer>
