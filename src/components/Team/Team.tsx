@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { FormattedMessage } from "react-intl";
 import styled from "styled-components";
 import apiService from "../../shared/services/api/api.service";
 import { IContent } from "../../shared/services/api/model/IContent";
-import { AppStateType } from "../../store/model/AppStateType";
 import { H1 } from "../../styles/elements/elements";
 import { Colors } from "../../styles/settings/colors";
 import TeamMember from "./TeamMember";
@@ -27,7 +26,6 @@ const TeamList = styled.div`
 
 function Team() {
 
-  const i18n = useSelector((state: AppStateType) => state.i18n);
   const [ team, setTeam ] = useState([] as IContent[]);
 
   useEffect(() => {
@@ -40,7 +38,7 @@ function Team() {
   }
 
   return <>
-    <TeamH1>{i18n.team}</TeamH1>
+    <TeamH1><FormattedMessage id="team" defaultMessage="Executivo" /></TeamH1>
     <TeamList>
       {team.map((member: IContent, index: number) =>
         <TeamMember key={`team-member-${index}`} member={member} />

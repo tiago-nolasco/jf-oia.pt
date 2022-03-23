@@ -1,7 +1,6 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { FormattedMessage } from "react-intl";
 import styled from "styled-components";
-import { AppStateType } from "../store/model/AppStateType";
 import { Spacer } from "../styles/components/components";
 // import { Image } from "../styles/components/components";
 import { Colors } from "../styles/settings/colors";
@@ -32,12 +31,9 @@ const UnderConstruction = styled.div`
 // `;
 
 function Footer() {
-
-  const i18n = useSelector((state: AppStateType) => state.i18n);
-
   return <>
     <FooterContainer>
-      {i18n.signature}
+      <FormattedMessage id="signature" defaultMessage="JF Oiã" />
       {/* <I9design>
         2021/2022
         <Image />

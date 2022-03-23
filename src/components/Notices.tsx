@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { FormattedMessage } from "react-intl";
 import styled from "styled-components";
 import ContentItem from "../shared/components/ContentItem";
 import apiService from "../shared/services/api/api.service";
 import { IContent } from "../shared/services/api/model/IContent";
-import { AppStateType } from "../store/model/AppStateType";
 import { H1 } from "../styles/elements/elements";
 
 const NoticesContent = styled.div`
@@ -13,7 +12,6 @@ const NoticesContent = styled.div`
 
 function Notices() {
 
-  const i18n = useSelector((state: AppStateType) => state.i18n);
   const [ notices, setNotices ] = useState([] as IContent[]);
 
   useEffect(() => {
@@ -26,7 +24,7 @@ function Notices() {
   }
 
   return <>
-    <H1>{i18n.notices_edicts}</H1>
+    <H1><FormattedMessage id="notices_edicts" defaultMessage="Avisos" /></H1>
     <NoticesContent>
       {notices.map((item: IContent, index: number) => (
         <ContentItem key={`list-news-${index}`} item={item} />

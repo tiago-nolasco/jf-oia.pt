@@ -5,14 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from "./store"
 
-// ACTION -> Describes what we want to do (e.g. increment, addUser, setI18n) 
-
-// REDUCER -> How an ACTION transform the state into the next (e.g. i++, user.push({}), i18n = {})
-
-// STORE -> Globalized state
-
-// DISPATCH -> Distatch an ACTION to the REDUCER
-
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { FormattedMessage, IntlProvider } from "react-intl";
+import { IntlProvider } from "react-intl";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Footer from "./components/Footer";
@@ -31,7 +31,6 @@ function App() {
     <GenericStyles />
     <IntlProvider messages={i18n} locale="pt" defaultLocale="pt">
       <Container>
-        <FormattedMessage id="react_intl_test" />
         <Header />
         <Spacer />
         <Home />

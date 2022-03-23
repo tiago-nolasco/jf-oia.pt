@@ -11,8 +11,7 @@ import Health from "./Health";
 import { DataItem } from "./shared/DataItem";
 import Social from "./Social";
 import Other from "./Other";
-import { useSelector } from "react-redux";
-import { AppStateType } from "../../store/model/AppStateType";
+import { FormattedMessage } from "react-intl";
 
 const ContactsContainer = styled.div`
   display: flex;
@@ -56,11 +55,8 @@ const ContainerTitle = styled.div`
 `;
 
 function Contacts() {
-  
-  const i18n = useSelector((state: AppStateType) => state.i18n);
-
   return <>
-    <H1>{i18n.contacts}</H1>
+    <H1><FormattedMessage id="contacts" defaultMessage="Contactos" /></H1>
     <ContactsContainer>
       <Item><Address /></Item>
       <Item><Emails /></Item>

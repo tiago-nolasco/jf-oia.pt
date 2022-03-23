@@ -1,8 +1,7 @@
 import React from "react";
+import { FormattedMessage } from "react-intl";
 import styled, { css } from "styled-components";
 import { Colors } from "../styles/settings/colors";
-import { useSelector } from "react-redux";
-import { AppStateType } from "../store/model/AppStateType";
 
 const sharedStyles = css`
   border: 2px dashed ${Colors.GRAY_50};
@@ -60,9 +59,6 @@ const MenuItem = styled.div`
 
 
 function Header() {
-
-  const i18n = useSelector((state: AppStateType) => state.i18n);
-
   return (
     <HeaderContainer>
       <Logo>
@@ -70,10 +66,10 @@ function Header() {
         <Name>Junta <small>de</small> Freguesia <small>de</small> Oiã</Name>
       </Logo>
       <Menu>
-        <MenuItem>{i18n.menu_inicio}</MenuItem>
-        <MenuItem>{i18n.menu_freguesia}</MenuItem>
-        <MenuItem>{i18n.menu_autarquia}</MenuItem>
-        <MenuItem>{i18n.menu_informacoes}</MenuItem>
+        <MenuItem><FormattedMessage id="menu_inicio" defaultMessage="Inicio" /></MenuItem>
+        <MenuItem><FormattedMessage id="menu_freguesia" defaultMessage="Freguesia" /></MenuItem>
+        <MenuItem><FormattedMessage id="menu_autarquia" defaultMessage="Autarquia" /></MenuItem>
+        <MenuItem><FormattedMessage id="menu_informacoes" defaultMessage="Informacoes" /></MenuItem>
       </Menu>
     </HeaderContainer>
   );
