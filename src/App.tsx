@@ -9,6 +9,12 @@ import { i18nSelector } from "./store/selectors/i18n";
 import { Spacer } from "./styles/components/components";
 import GenericStyles from "./styles/generic/generic";
 import Home from "./views/home";
+import { Routes, Route } from "react-router-dom";
+import Documents from "./views/documents";
+import Requirements from "./views/requirements";
+import PlacesToVisit from "./views/placesToVisit";
+import WhereToEat from "./views/whereToEat";
+import Institutions from "./views/institutions";
 
 const Container = styled.div`
   width: calc(100% - 80px);
@@ -33,7 +39,14 @@ function App() {
       <Container>
         <Header />
         <Spacer />
-        <Home />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/documents" element={<Documents />} />
+          <Route path="/requirements" element={<Requirements />} />
+          <Route path="/places-to-visit" element={<PlacesToVisit />} />
+          <Route path="/where-to-eat-sleep" element={<WhereToEat />} />
+          <Route path="/institutions" element={<Institutions />} />
+        </Routes>
         <Spacer />
         <Footer />
       </Container>

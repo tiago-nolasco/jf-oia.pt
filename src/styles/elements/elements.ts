@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { Colors } from "../settings/colors";
 
 export const H1 = styled.h1`
+  display: flex;
+  align-items: center;
   font-size: 16px;
   font-weight: 600;
   text-transform: uppercase;

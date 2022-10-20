@@ -12,7 +12,11 @@ interface IHtmlProps {
 }
 
 const ItemContainer = styled.div`
-  padding: 15px;
+  padding: 10px;
+  flex-basis: 0;
+  flex: 1 1 0px;
+  width: 0;
+  min-width: 25%;
 `;
 
 const ItemImage = styled(Image)`

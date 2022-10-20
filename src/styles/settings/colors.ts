@@ -2,6 +2,7 @@ export const enum Colors {
 
   SALOMIE = "#FFDB93",
   HOKEY_POKEY = "#CC9933",
+  FRENCH_PASS = "#AFD9FC",
 
   GRAY_100 = "#2b3540",
   GRAY_90 = "#404952",

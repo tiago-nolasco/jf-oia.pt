@@ -2,7 +2,7 @@ import React from "react";
 import { FormattedMessage } from "react-intl";
 import styled from "styled-components";
 import { Spacer } from "../styles/components/components";
-// import { Image } from "../styles/components/components";
+import { Image } from "../styles/components/components";
 import { Colors } from "../styles/settings/colors";
 
 const FooterContainer = styled.div`
@@ -14,6 +14,21 @@ const FooterContainer = styled.div`
   color: ${Colors.GRAY_20};
 `;
 
+const FooterMenu = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 20px;
+
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    text-transform: uppercase;
+    color
+  }
+`;
+
 const UnderConstruction = styled.div`
   position: relative;
   font-size: 40px;
@@ -23,21 +38,38 @@ const UnderConstruction = styled.div`
   color: ${Colors.GRAY_100};
 `;
 
-// const I9design = styled.div`
-//   position: absolute;
-//   top: 0;
-//   right: 0;
-//   height: 0;
-// `;
+const I9design = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 0;
+  right: 10px;
+  height: 100%;
+  opacity: .6;
+`;
+
+const SignatureImage = styled(Image)`
+  width: 140px;
+  height: 35px;
+  align-self: flex-end;
+  margin-left: 10px;
+`;
 
 function Footer() {
   return <>
+    <FooterMenu>
+      <div><a href="https://www.livroreclamacoes.pt/inicio" target="_blanc" rel="noopener"><img alt="logo" src="./assets/icons/iCON LivroReclama - Gray60.svg" /></a></div>
+      <div><a href="https://www.livroreclamacoes.pt/inicio" target="_blanc" rel="noopener"><img alt="logo" src="./assets/icons/iCON LivroElogios - Gray60.svg" /></a></div>
+      <div>Newsletter</div>
+      <div>Política de Privacidade</div>
+      <div>Home</div>
+    </FooterMenu>
     <FooterContainer>
       <FormattedMessage id="signature" defaultMessage="JF Oiã" />
-      {/* <I9design>
+      <I9design>
         2021/2022
-        <Image />
-      </I9design> */}
+        <SignatureImage src="./assets/images/i9design.png" />
+      </I9design>
     </FooterContainer>
     <Spacer height={10} />
     <UnderConstruction>WEBSITE EM CONSTRUÇÃO</UnderConstruction>

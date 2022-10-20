@@ -29,10 +29,11 @@ export const Spacer = styled.div<Partial<ISpacerProps>>`
 interface IImageProps {
   src: string;
   fullImage?: boolean;
+  width?: string;
   height?: number;
 }
 export const Image = styled.div<Partial<IImageProps>>`
-  width: 100%;
+  width: ${props => props.width || "100%"};
   height: ${props => props.height || "250"}px;
   background: url(${props => props.src}) no-repeat center center;
   background-size: ${props => props.fullImage ? "contain" : "cover"};

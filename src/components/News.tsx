@@ -8,6 +8,7 @@ import { H1 } from "../styles/elements/elements";
 
 const NewsContainer = styled.div`
   display: flex;
+  margin: 0 -10px;
 `;
 
 function News() {
@@ -18,9 +19,13 @@ function News() {
     loadNews();
   }, []);
 
-  const loadNews = async (): Promise<void> => {
+  const loadNews = async (page = 1): Promise<void> => {
     const data: IContent[] = await apiService.getNews();
-    setNews(data);
+
+    const limit = 3;
+    const start = (page - 1) * limit;
+    const paged = data.splice(start, limit);
+    setNews(paged);
   }
 
   return <>

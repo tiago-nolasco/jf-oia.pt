@@ -5,6 +5,7 @@ import { IApiService } from "./model/IApiService";
 import { IApiResponse } from './model/IApiResponse';
 import { IContent } from './model/IContent';
 import { II18n } from './model/II18n';
+import { IDocument } from './model/IDocument';
 
 enum SortDirectionEnum {
   ASC = "ASC",
@@ -40,7 +41,27 @@ class ApiService implements IApiService {
     return this.httpGet("content_news", {
       sort: "order",
       direction: SortDirectionEnum.ASC,
-      limit: 3,
+    });
+  }
+
+  public getPlacesToVisit(): Promise<IContent[]> {
+    return this.httpGet("content_placesToVisit", {
+      sort: "order",
+      direction: SortDirectionEnum.ASC,
+    });
+  }
+
+  public getWhereToEat(): Promise<IContent[]> {
+    return this.httpGet("content_whereToEat", {
+      sort: "order",
+      direction: SortDirectionEnum.ASC,
+    });
+  }
+
+  public getInstitutions(): Promise<IContent[]> {
+    return this.httpGet("content_institutions", {
+      sort: "order",
+      direction: SortDirectionEnum.ASC,
     });
   }
 
@@ -48,13 +69,35 @@ class ApiService implements IApiService {
     return this.httpGet("content_notices", {
       sort: "order",
       direction: SortDirectionEnum.ASC,
-      limit: 3,
+    });
+  }
+
+  public getEvents(): Promise<IContent[]> {
+    return this.httpGet("content_events", {
+      sort: "order",
+      direction: SortDirectionEnum.ASC,
     });
   }
 
   public getTeam(): Promise<IContent[]> {
     return this.httpGet("content_team", {
       sort: "order",
+      direction: SortDirectionEnum.ASC,
+    });
+  }
+
+  public getDocuments(): Promise<IDocument[]> {
+    return this.httpGet("content_documents", {
+      sort: "order",
+      fields: ["name", "idsubcat"],
+      direction: SortDirectionEnum.ASC,
+    });
+  }
+
+  public getRequirements(): Promise<IDocument[]> {
+    return this.httpGet("content_requirements", {
+      sort: "order",
+      fields: ["name", "idsubcat"],
       direction: SortDirectionEnum.ASC,
     });
   }

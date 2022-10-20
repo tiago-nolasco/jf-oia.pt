@@ -9,6 +9,7 @@ import TeamMember from "./TeamMember";
 
 const TeamH1 = styled(H1)`
   position: relative;
+  display: block;
   background: ${Colors.SALOMIE};
   border: 0;
   font-size: 28px;
