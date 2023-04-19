@@ -6,12 +6,12 @@ import { DataItem } from "./shared/DataItem";
 function Health() {
 
   const data = {
-    oBairro: "<b>Centro de Saúde de Oliveira do Bairro</b><br />234 730 430",
-    oia: "<b>Ext. Centro de Saúde de Oiã</b><br />234 729 410",
-    palhaca: "<b>E. C. S. Palhaça</b><br />234 751 614",
-    troviscal: "<b>E. C. S. Troviscal</b><br />234 751 902",
-    bustos: "<b>E. C. S. Bustos</b><br />234 752 160",
-    mamarrosa: "<b>E. C. S. Mamarrosa</b><br />234 751 488",
+    oBairro: "<b>Centro de Saúde de Oliveira do Bairro</b><br />*234 730 430",
+    oia: "<b>Ext. Centro de Saúde de Oiã</b><br />*234 729 410",
+    palhaca: "<b>E. C. S. Palhaça</b><br />*234 751 614",
+    troviscal: "<b>E. C. S. Troviscal</b><br />*234 751 902",
+    bustos: "<b>E. C. S. Bustos</b><br />*234 752 160",
+    mamarrosa: "<b>E. C. S. Mamarrosa</b><br />*234 751 488",
   };
 
   return <>

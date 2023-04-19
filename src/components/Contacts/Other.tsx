@@ -6,7 +6,7 @@ import { DataItem } from "./shared/DataItem";
 
 function Other() {
 
-  const suma = "<b>Recolha Monstros (SUMA)</b><br />234 303 230";
+  const suma = "<b>Recolha Monstros (SUMA)</b><br />*234 303 230";
   const cmWebsite = "www.cm-olb.pt";
 
   return <>

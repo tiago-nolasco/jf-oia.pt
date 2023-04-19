@@ -12,6 +12,7 @@ import { DataItem } from "./shared/DataItem";
 import Social from "./Social";
 import Other from "./Other";
 import { FormattedMessage } from "react-intl";
+import { Breakpoints } from "../../styles/settings/breakpoints";
 
 const ContactsContainer = styled.div`
   display: flex;
@@ -39,6 +40,11 @@ const Item = styled.div<Partial<IItemProps>>`
 
   > p {
     margin: 0;
+  }
+
+  @media only screen and (max-width: ${Breakpoints.SM}) {
+    align-items: center;
+    text-align: center;
   }
 `;
 

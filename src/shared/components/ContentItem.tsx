@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Image } from "../../styles/components/components";
 import { H2 } from "../../styles/elements/elements";
+import { Breakpoints } from "../../styles/settings/breakpoints";
 import { Colors } from "../../styles/settings/colors";
 import { IContent } from "../services/api/model/IContent";
 import { IContentMedia } from "../services/api/model/IContentMedia";
@@ -17,6 +18,14 @@ const ItemContainer = styled.div`
   flex: 1 1 0px;
   width: 0;
   min-width: 25%;
+
+  @media only screen and (max-width: ${Breakpoints.LG}) {
+    min-width: 50%;
+  }
+
+  @media only screen and (max-width: ${Breakpoints.MD}) {
+    min-width: 100%;
+  }
 `;
 
 const ItemImage = styled(Image)`
@@ -24,7 +33,6 @@ const ItemImage = styled(Image)`
 `;
 
 function ContentItem(props: IHtmlProps) {
-
   const [image, setImage] = useState({} as IContentMedia);
 
   useEffect(() => {
@@ -36,19 +44,29 @@ function ContentItem(props: IHtmlProps) {
       (image: IContentMedia) => image.main
     );
     setImage(mainImage);
-  }
+  };
 
   const getImage = (): JSX.Element => {
-    return image && <ItemImage src={image.file} fullImage={image.showFullImage} height={200} />;
-  }
+    return (
+      image && (
+        <ItemImage
+          src={image.file}
+          fullImage={image.showFullImage}
+          height={200}
+        />
+      )
+    );
+  };
 
-  return <>
-    <ItemContainer>
-      {getImage()}
-      <H2>{props.item.title}</H2>
-      <RenderHtml value={props.item.summary} />
-    </ItemContainer>
-    </>;
+  return (
+    <>
+      <ItemContainer>
+        {getImage()}
+        <H2>{props.item.title}</H2>
+        <RenderHtml value={props.item.summary} />
+      </ItemContainer>
+    </>
+  );
 }
 
 export default ContentItem;

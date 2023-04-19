@@ -120,7 +120,7 @@ function Header() {
             <MenuLink to="/documents"><FormattedMessage id="menu_documents" defaultMessage="Documentos" /></MenuLink>
             <MenuLink to="/requirements"><FormattedMessage id="menu_requirements" defaultMessage="Requerimentos" /></MenuLink>
             <MenuItem><FormattedMessage id="menu_toponymy" defaultMessage="Toponímia" /></MenuItem>
-            <MenuItem><FormattedMessage id="menu_incidents" defaultMessage="Incidentes" /></MenuItem>
+            <MenuLink to="/ocorrencias"><FormattedMessage id="menu_incidents" defaultMessage="Ocorrências" /></MenuLink>
           </SubMenu>
         </MenuItem>
         <MenuItem><FormattedMessage id="menu_info" defaultMessage="Informacoes" /></MenuItem>

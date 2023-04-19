@@ -1,5 +1,6 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Spacer } from "../styles/components/components";
 import { Image } from "../styles/components/components";
@@ -61,8 +62,8 @@ function Footer() {
       <div><a href="https://www.livroreclamacoes.pt/inicio" target="_blanc" rel="noopener"><img alt="logo" src="./assets/icons/iCON LivroReclama - Gray60.svg" /></a></div>
       <div><a href="https://www.livroreclamacoes.pt/inicio" target="_blanc" rel="noopener"><img alt="logo" src="./assets/icons/iCON LivroElogios - Gray60.svg" /></a></div>
       <div>Newsletter</div>
-      <div>Política de Privacidade</div>
-      <div>Home</div>
+      <div><Link to="/politica-de-privacidade">Política de Privacidade</Link></div>
+      <div><Link to="/inicio">Home</Link></div>
     </FooterMenu>
     <FooterContainer>
       <FormattedMessage id="signature" defaultMessage="JF Oiã" />

@@ -21,6 +21,8 @@ const TeamH1 = styled(H1)`
 
 const TeamList = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   width: 100%;
   padding-bottom: 30px;
 `;

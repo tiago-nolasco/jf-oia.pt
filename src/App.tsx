@@ -15,12 +15,20 @@ import Requirements from "./views/requirements";
 import PlacesToVisit from "./views/placesToVisit";
 import WhereToEat from "./views/whereToEat";
 import Institutions from "./views/institutions";
+import Incidentes from "./views/incidentes";
+import Privacidade from "./views/privacidade";
+import MobileApps from "./views/mobileApps";
+import { Breakpoints } from "./styles/settings/breakpoints";
 
 const Container = styled.div`
-  width: calc(100% - 80px);
+  width: 100%;
   max-width: 1280px;
   padding: 40px;
   margin: 0 auto;
+
+  @media only screen and (max-width: ${Breakpoints.LG}) {
+    padding: 20px;
+  }
 `;
 
 function App() {
@@ -41,11 +49,15 @@ function App() {
         <Spacer />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/inicio" element={<Home />} />
           <Route path="/documents" element={<Documents />} />
           <Route path="/requirements" element={<Requirements />} />
           <Route path="/places-to-visit" element={<PlacesToVisit />} />
           <Route path="/where-to-eat-sleep" element={<WhereToEat />} />
           <Route path="/institutions" element={<Institutions />} />
+          <Route path="/ocorrencias" element={<Incidentes />} />
+          <Route path="/politica-de-privacidade" element={<Privacidade />} />
+          <Route path="/mobile-app" element={<MobileApps />} />
         </Routes>
         <Spacer />
         <Footer />

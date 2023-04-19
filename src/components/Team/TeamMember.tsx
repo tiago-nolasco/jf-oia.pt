@@ -16,6 +16,8 @@ const TeamMemberContainer = styled.div`
   align-items: center;
   flex: 1;
   padding: 10px;
+  min-width: 150px;
+  flex-shrink: 0;
 `;
 
 const TeamMemberDescription = styled.div`

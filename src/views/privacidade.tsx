@@ -5,60 +5,43 @@ import apiService from "../shared/services/api/api.service";
 import { ContentTagEnum } from "../shared/services/api/model/ContentTagEnum";
 import { IContent } from "../shared/services/api/model/IContent";
 import { IContentMedia } from "../shared/services/api/model/IContentMedia";
-import { Image } from "../styles/components/components";
 import { H1 } from "../styles/elements/elements";
-import { Breakpoints } from "../styles/settings/breakpoints";
 
 const Message = styled.div`
   display: flex;
-  flex-wrap: wrap;
 `;
 
 const Text = styled.div`
   flex: 1;
 `;
 
-const PresidentImage = styled(Image)`
-  width: 250px;
-  margin-right: 20px;
-
-  @media only screen and (max-width: ${Breakpoints.LG}) {
-    width: 100%;
-  }
-`;
-
-function PresidentMessage() {
+function Privacidade() {
 
   const [ title, setTitle ] = useState("");
   const [ message, setMessage ] = useState("");
-  const [ image, setImage ] = useState({} as IContentMedia);
+  const [ documents, setDocuments ] = useState<IContentMedia[]>([]);
 
   useEffect(() => {
     loadContent();
   }, []);
 
   const loadContent = async (): Promise<void> => {
-    const data: IContent = await apiService.getContent(ContentTagEnum.PRESIDENT_MESSAGE);
-    const mainImage: IContentMedia = data.images?.find((image: IContentMedia) => image.main);
+    const data: IContent = await apiService.getContent(ContentTagEnum.PRIVACY);
 
     setTitle(data.title);
     setMessage(data.description);
-    setImage(mainImage);
-  }
-
-  const getPresidentImage = (): JSX.Element => {
-    return image && <PresidentImage src={image.file} fullImage={image.showFullImage} height={300} />;
+    setDocuments(data.documents || []);
   }
 
   return <>
     <H1>{title}</H1>
     <Message>
-      {getPresidentImage()}
       <Text>
         <RenderHtml value={message} />
+        {documents.map((doc) => <p><a href={doc.file} target="_blank">{doc.title}</a></p>)}
       </Text>
     </Message>
   </>;
 }
 
-export default PresidentMessage;
+export default Privacidade;
